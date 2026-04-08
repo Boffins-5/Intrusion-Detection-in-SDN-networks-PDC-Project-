@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import (
 )
 from PyQt5.QtCore import Qt, QSize
 from PyQt5.QtGui import QFont, QIcon
-
+from panels.topology_panel import TopologyPanel
 # ─────────────────────────────────────────
 #  DARK THEME
 # ─────────────────────────────────────────
@@ -177,12 +177,8 @@ class MainWindow(QMainWindow):
         # Stacked panels
         self.stack = QStackedWidget()
 
-        # Add placeholder panels
-        self.stack.addWidget(make_placeholder(
-            "🗺️  Live Topology Map",
-            "#3B82F6",
-            "Animated network nodes — hosts, switches, SDN controller\nBuilding on Day 3"
-        ))
+        # Add Topology panels
+        self.stack.addWidget(TopologyPanel())
         self.stack.addWidget(make_placeholder(
             "📈  Real-Time Traffic Charts",
             "#10B981",
